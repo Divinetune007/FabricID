@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2d5a8e;
+  --color-primary-dark: #0f2440;
+  --color-accent: #e07a2f;
+  --color-accent-light: #f0943f;
+  --color-accent-dark: #c06520;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-surface: #f8fafc;
+  --color-surface-dark: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-xl font-semibold
+      hover:bg-primary-light transition-all duration-200
+      shadow-md hover:shadow-lg active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-xl font-semibold
+      hover:bg-accent-light transition-all duration-200
+      shadow-md hover:shadow-lg active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-xl font-semibold
+      hover:bg-primary hover:text-white transition-all duration-200
+      active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-md border border-gray-100 p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200
+      focus:border-primary focus:ring-2 focus:ring-primary/20
+      outline-none transition-all duration-200 bg-white;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg border border-white/20 p-6;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-accent) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* QR Scanner overlay */
+#qr-reader {
+  border: none !important;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+#qr-reader video {
+  border-radius: 1rem;
+}
